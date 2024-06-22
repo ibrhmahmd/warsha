@@ -11,7 +11,7 @@ namespace warsha
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new adding_customer());
+            Application.Run(new Home());
         }
     }
 }
