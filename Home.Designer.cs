@@ -30,16 +30,14 @@
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -48,76 +46,96 @@
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             adding_groubbox = new Guna.UI2.WinForms.Guna2GroupBox();
-            label3 = new Label();
             ADD_cust = new Button();
+            label3 = new Label();
             CustPhone = new TextBox();
             CustName = new TextBox();
             label2 = new Label();
+            add_order_btn = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             orders_group = new Guna.UI2.WinForms.Guna2GroupBox();
+            SQR_MTR_Price = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            SQR_MTR_Price_lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             SaveButton = new Guna.UI2.WinForms.Guna2Button();
             Order_DataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             order_data_grid_edit = new Guna.UI2.WinForms.Guna2DataGridView();
+            orders_groub = new Guna.UI2.WinForms.Guna2GroupBox();
+            ordersgrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            add_order_group = new Guna.UI2.WinForms.Guna2GroupBox();
             adding_groubbox.SuspendLayout();
             guna2Panel2.SuspendLayout();
             orders_group.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Order_DataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)order_data_grid_edit).BeginInit();
+            orders_groub.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ordersgrid).BeginInit();
+            add_order_group.SuspendLayout();
             SuspendLayout();
             // 
             // adding_groubbox
             // 
             adding_groubbox.BorderColor = Color.Black;
             adding_groubbox.BorderRadius = 25;
-            adding_groubbox.Controls.Add(label3);
+            adding_groubbox.BorderThickness = 3;
             adding_groubbox.Controls.Add(ADD_cust);
+            adding_groubbox.Controls.Add(label3);
             adding_groubbox.Controls.Add(CustPhone);
             adding_groubbox.Controls.Add(CustName);
             adding_groubbox.Controls.Add(label2);
+            adding_groubbox.CustomBorderColor = Color.White;
+            adding_groubbox.CustomBorderThickness = new Padding(0);
             adding_groubbox.CustomizableEdges = customizableEdges1;
             adding_groubbox.Font = new Font("Segoe UI", 9F);
             adding_groubbox.ForeColor = Color.FromArgb(125, 137, 149);
-            adding_groubbox.Location = new Point(1951, 173);
+            adding_groubbox.Location = new Point(25, 50);
             adding_groubbox.Name = "adding_groubbox";
             adding_groubbox.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            adding_groubbox.Size = new Size(500, 400);
+            adding_groubbox.Size = new Size(1250, 326);
             adding_groubbox.TabIndex = 7;
             adding_groubbox.Text = "ADD";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(346, 148);
-            label3.Name = "label3";
-            label3.Size = new Size(149, 37);
-            label3.TabIndex = 10;
-            label3.Text = ": رقم الهاتف";
-            label3.Click += label3_Click;
+            adding_groubbox.Visible = false;
+            adding_groubbox.Click += adding_groubbox_Click;
             // 
             // ADD_cust
             // 
             ADD_cust.ForeColor = Color.Black;
-            ADD_cust.Location = new Point(24, 274);
+            ADD_cust.Location = new Point(358, 249);
             ADD_cust.Name = "ADD_cust";
             ADD_cust.Size = new Size(471, 59);
             ADD_cust.TabIndex = 15;
             ADD_cust.Text = "إضافه";
             ADD_cust.Click += ADD_cust_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(590, 31);
+            label3.Name = "label3";
+            label3.Size = new Size(149, 37);
+            label3.TabIndex = 10;
+            label3.Text = ": رقم الهاتف";
+            label3.Click += label3_Click;
+            // 
             // CustPhone
             // 
-            CustPhone.Location = new Point(24, 148);
+            CustPhone.Location = new Point(265, 28);
             CustPhone.Name = "CustPhone";
             CustPhone.Size = new Size(310, 43);
             CustPhone.TabIndex = 14;
             // 
             // CustName
             // 
-            CustName.Location = new Point(24, 55);
+            CustName.Location = new Point(749, 28);
             CustName.Name = "CustName";
             CustName.Size = new Size(310, 43);
             CustName.TabIndex = 12;
@@ -126,90 +144,88 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(396, 55);
+            label2.Location = new Point(1065, 28);
             label2.Name = "label2";
-            label2.Size = new Size(99, 37);
+            label2.Size = new Size(158, 37);
             label2.TabIndex = 9;
-            label2.Text = " : الاسم";
+            label2.Text = ": إسم العميل";
+            // 
+            // add_order_btn
+            // 
+            add_order_btn.BorderColor = Color.White;
+            add_order_btn.BorderRadius = 20;
+            add_order_btn.BorderThickness = 10;
+            add_order_btn.CustomizableEdges = customizableEdges3;
+            add_order_btn.DisabledState.BorderColor = Color.DarkGray;
+            add_order_btn.DisabledState.CustomBorderColor = Color.DarkGray;
+            add_order_btn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            add_order_btn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            add_order_btn.FillColor = Color.Black;
+            add_order_btn.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            add_order_btn.ForeColor = Color.White;
+            add_order_btn.Location = new Point(875, 25);
+            add_order_btn.Name = "add_order_btn";
+            add_order_btn.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            add_order_btn.Size = new Size(750, 100);
+            add_order_btn.TabIndex = 14;
+            add_order_btn.Text = "ADD ORDER ";
+            add_order_btn.Click += add_order_btn_click;
             // 
             // guna2Panel2
             // 
             guna2Panel2.BackColor = Color.Black;
             guna2Panel2.BorderRadius = 50;
-            guna2Panel2.Controls.Add(guna2Button1);
-            guna2Panel2.Controls.Add(guna2TextBox1);
-            guna2Panel2.CustomizableEdges = customizableEdges7;
+            guna2Panel2.Controls.Add(add_order_btn);
+            guna2Panel2.CustomizableEdges = customizableEdges5;
             guna2Panel2.Location = new Point(0, 0);
             guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel2.Size = new Size(2500, 150);
             guna2Panel2.TabIndex = 9;
-            // 
-            // guna2Button1
-            // 
-            guna2Button1.BorderRadius = 20;
-            guna2Button1.CustomizableEdges = customizableEdges3;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.White;
-            guna2Button1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button1.ForeColor = Color.Black;
-            guna2Button1.Location = new Point(2193, 41);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Button1.Size = new Size(250, 70);
-            guna2Button1.TabIndex = 0;
-            guna2Button1.Text = "ADD ORDER";
-            // 
-            // guna2TextBox1
-            // 
-            guna2TextBox1.BorderColor = Color.White;
-            guna2TextBox1.BorderRadius = 15;
-            guna2TextBox1.CustomizableEdges = customizableEdges5;
-            guna2TextBox1.DefaultText = "";
-            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 9F);
-            guna2TextBox1.ForeColor = Color.Black;
-            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(15, 41);
-            guna2TextBox1.Margin = new Padding(6, 7, 6, 7);
-            guna2TextBox1.Name = "guna2TextBox1";
-            guna2TextBox1.PasswordChar = '\0';
-            guna2TextBox1.PlaceholderText = "  Search Here ";
-            guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2TextBox1.Size = new Size(500, 70);
-            guna2TextBox1.TabIndex = 0;
             // 
             // orders_group
             // 
             orders_group.BorderColor = Color.White;
             orders_group.BorderRadius = 25;
+            orders_group.Controls.Add(SQR_MTR_Price);
+            orders_group.Controls.Add(SQR_MTR_Price_lbl);
             orders_group.Controls.Add(SaveButton);
             orders_group.Controls.Add(Order_DataGrid);
             orders_group.Controls.Add(order_data_grid_edit);
             orders_group.CustomBorderColor = Color.White;
-            orders_group.CustomizableEdges = customizableEdges11;
+            orders_group.CustomizableEdges = customizableEdges9;
             orders_group.Font = new Font("Segoe UI", 9F);
-            orders_group.ForeColor = Color.FromArgb(125, 137, 149);
-            orders_group.Location = new Point(25, 173);
+            orders_group.ForeColor = Color.FromArgb(125, 140, 150);
+            orders_group.Location = new Point(12, 909);
             orders_group.Name = "orders_group";
-            orders_group.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            orders_group.Size = new Size(1500, 700);
+            orders_group.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            orders_group.Size = new Size(1300, 700);
             orders_group.TabIndex = 10;
-            orders_group.Text = "ADD ORDERS";
+            orders_group.Text = "EDIT ORDER";
+            // 
+            // SQR_MTR_Price
+            // 
+            SQR_MTR_Price.BackColor = Color.Transparent;
+            SQR_MTR_Price.Location = new Point(922, 16);
+            SQR_MTR_Price.Name = "SQR_MTR_Price";
+            SQR_MTR_Price.Size = new Size(3, 2);
+            SQR_MTR_Price.TabIndex = 4;
+            SQR_MTR_Price.Text = null;
+            // 
+            // SQR_MTR_Price_lbl
+            // 
+            SQR_MTR_Price_lbl.BackColor = Color.Transparent;
+            SQR_MTR_Price_lbl.Location = new Point(986, -322);
+            SQR_MTR_Price_lbl.Name = "SQR_MTR_Price_lbl";
+            SQR_MTR_Price_lbl.Size = new Size(3, 2);
+            SQR_MTR_Price_lbl.TabIndex = 3;
+            SQR_MTR_Price_lbl.Text = null;
             // 
             // SaveButton
             // 
             SaveButton.BackColor = SystemColors.ControlText;
             SaveButton.BorderRadius = 20;
-            SaveButton.CustomizableEdges = customizableEdges9;
+            SaveButton.CustomizableEdges = customizableEdges7;
             SaveButton.DisabledState.BorderColor = Color.DarkGray;
             SaveButton.DisabledState.CustomBorderColor = Color.DarkGray;
             SaveButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -217,9 +233,9 @@
             SaveButton.FillColor = Color.Black;
             SaveButton.Font = new Font("Segoe UI", 9F);
             SaveButton.ForeColor = Color.White;
-            SaveButton.Location = new Point(563, 613);
+            SaveButton.Location = new Point(484, 618);
             SaveButton.Name = "SaveButton";
-            SaveButton.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            SaveButton.ShadowDecoration.CustomizableEdges = customizableEdges8;
             SaveButton.Size = new Size(250, 70);
             SaveButton.TabIndex = 2;
             SaveButton.Text = "SAVE";
@@ -232,7 +248,7 @@
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 69, 94);
             Order_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
@@ -246,14 +262,14 @@
             Order_DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle3.ForeColor = Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             Order_DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             Order_DataGrid.GridColor = Color.FromArgb(231, 229, 255);
-            Order_DataGrid.Location = new Point(50, 87);
+            Order_DataGrid.Location = new Point(5, 94);
             Order_DataGrid.Name = "Order_DataGrid";
             Order_DataGrid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -267,7 +283,7 @@
             Order_DataGrid.RowHeadersVisible = false;
             Order_DataGrid.RowHeadersWidth = 92;
             Order_DataGrid.RowTemplate.Height = 50;
-            Order_DataGrid.Size = new Size(1295, 502);
+            Order_DataGrid.Size = new Size(1290, 502);
             Order_DataGrid.TabIndex = 1;
             Order_DataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             Order_DataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -290,6 +306,7 @@
             Order_DataGrid.ThemeStyle.RowsStyle.Height = 50;
             Order_DataGrid.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             Order_DataGrid.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            Order_DataGrid.CellContentClick += Order_DataGrid_CellContentClick;
             // 
             // order_data_grid_edit
             // 
@@ -298,7 +315,7 @@
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle5.SelectionBackColor = Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(71, 69, 94);
             order_data_grid_edit.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.White;
@@ -312,10 +329,10 @@
             order_data_grid_edit.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = Color.White;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle7.ForeColor = Color.Black;
             dataGridViewCellStyle7.SelectionBackColor = Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
             order_data_grid_edit.DefaultCellStyle = dataGridViewCellStyle7;
             order_data_grid_edit.GridColor = Color.FromArgb(231, 229, 255);
@@ -357,24 +374,127 @@
             order_data_grid_edit.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             order_data_grid_edit.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
+            // orders_groub
+            // 
+            orders_groub.BorderRadius = 25;
+            orders_groub.Controls.Add(ordersgrid);
+            orders_groub.CustomBorderColor = Color.White;
+            orders_groub.CustomizableEdges = customizableEdges11;
+            orders_groub.Font = new Font("Segoe UI", 9F);
+            orders_groub.ForeColor = Color.FromArgb(125, 137, 149);
+            orders_groub.Location = new Point(1900, 170);
+            orders_groub.Name = "orders_groub";
+            orders_groub.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            orders_groub.Size = new Size(550, 1430);
+            orders_groub.TabIndex = 11;
+            orders_groub.Text = "ORDERS";
+            // 
+            // ordersgrid
+            // 
+            ordersgrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle9.BackColor = Color.White;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            ordersgrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.White;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            ordersgrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            ordersgrid.ColumnHeadersHeight = 50;
+            ordersgrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = Color.White;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = Color.White;
+            dataGridViewCellStyle11.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            ordersgrid.DefaultCellStyle = dataGridViewCellStyle11;
+            ordersgrid.GridColor = Color.FromArgb(231, 229, 255);
+            ordersgrid.Location = new Point(25, 50);
+            ordersgrid.Name = "ordersgrid";
+            ordersgrid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = Color.White;
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle12.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            ordersgrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            ordersgrid.RowHeadersVisible = false;
+            ordersgrid.RowHeadersWidth = 92;
+            ordersgrid.RowTemplate.Height = 50;
+            ordersgrid.Size = new Size(500, 1350);
+            ordersgrid.TabIndex = 0;
+            ordersgrid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            ordersgrid.ThemeStyle.AlternatingRowsStyle.Font = null;
+            ordersgrid.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            ordersgrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            ordersgrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            ordersgrid.ThemeStyle.BackColor = Color.White;
+            ordersgrid.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            ordersgrid.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            ordersgrid.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            ordersgrid.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            ordersgrid.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            ordersgrid.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            ordersgrid.ThemeStyle.HeaderStyle.Height = 50;
+            ordersgrid.ThemeStyle.ReadOnly = false;
+            ordersgrid.ThemeStyle.RowsStyle.BackColor = Color.White;
+            ordersgrid.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            ordersgrid.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            ordersgrid.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(125, 137, 149);
+            ordersgrid.ThemeStyle.RowsStyle.Height = 50;
+            ordersgrid.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            ordersgrid.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            // 
+            // add_order_group
+            // 
+            add_order_group.BorderRadius = 25;
+            add_order_group.Controls.Add(adding_groubbox);
+            add_order_group.CustomBorderColor = Color.White;
+            add_order_group.CustomizableEdges = customizableEdges13;
+            add_order_group.Font = new Font("Segoe UI", 9F);
+            add_order_group.ForeColor = Color.FromArgb(125, 140, 150);
+            add_order_group.Location = new Point(25, 175);
+            add_order_group.Name = "add_order_group";
+            add_order_group.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            add_order_group.Size = new Size(1300, 500);
+            add_order_group.TabIndex = 13;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2472, 1621);
-            Controls.Add(adding_groubbox);
+            Controls.Add(orders_groub);
             Controls.Add(orders_group);
+            Controls.Add(add_order_group);
             Controls.Add(guna2Panel2);
+            ForeColor = Color.Black;
+            HelpButton = true;
+            MaximizeBox = false;
             Name = "Home";
-            Text = "Adding Customers";
+            Text = "HOME";
             Load += adding_customer_Load;
             Click += SaveButton_Click;
             adding_groubbox.ResumeLayout(false);
             adding_groubbox.PerformLayout();
             guna2Panel2.ResumeLayout(false);
             orders_group.ResumeLayout(false);
+            orders_group.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Order_DataGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)order_data_grid_edit).EndInit();
+            orders_groub.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ordersgrid).EndInit();
+            add_order_group.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -386,12 +506,15 @@
         private Button ADD_cust;
         private Label label2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Button ADD;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2GroupBox orders_group;
         private Guna.UI2.WinForms.Guna2DataGridView order_data_grid_edit;
         private Guna.UI2.WinForms.Guna2DataGridView Order_DataGrid;
         private Guna.UI2.WinForms.Guna2Button SaveButton;
+        private Guna.UI2.WinForms.Guna2HtmlLabel SQR_MTR_Price_lbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel SQR_MTR_Price;
+        private Guna.UI2.WinForms.Guna2GroupBox orders_groub;
+        private Guna.UI2.WinForms.Guna2GroupBox add_order_group;
+        private Guna.UI2.WinForms.Guna2DataGridView ordersgrid;
+        private Guna.UI2.WinForms.Guna2Button add_order_btn;
     }
 }

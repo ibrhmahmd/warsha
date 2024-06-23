@@ -23,8 +23,8 @@ E:\Users\Ibrahim\Desktop\warsha\obj\Debug\net8.0-windows\warsha.genruntimeconfig
 E:\Users\Ibrahim\Desktop\warsha\obj\Debug\net8.0-windows\ref\warsha.dll
 E:\Users\Ibrahim\Desktop\warsha\obj\Debug\net8.0-windows\warsha.CustomMessageBox.resources
 E:\Users\Ibrahim\Desktop\warsha\bin\Debug\net8.0-windows\Guna.UI2.dll
-E:\Users\Ibrahim\Desktop\warsha\bin\Debug\net8.0-windows\Siticone.Desktop.UI.dll
 E:\Users\Ibrahim\Desktop\warsha\bin\Debug\net8.0-windows\System.Management.dll
 E:\Users\Ibrahim\Desktop\warsha\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
 E:\Users\Ibrahim\Desktop\warsha\obj\Debug\net8.0-windows\warsha.sourcelink.json
 E:\Users\Ibrahim\Desktop\warsha\obj\Debug\net8.0-windows\warsha.Home.resources
+E:\Users\Ibrahim\Desktop\warsha\obj\Debug\net8.0-windows\warsha.Add_Order.resources
