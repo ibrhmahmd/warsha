@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("warsha")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94c3548016200e751db50d7ad70f11bd4996b8ff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7dab400f5c789f16c33530f9a45bea30118594f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("warsha")]
 [assembly: System.Reflection.AssemblyTitleAttribute("warsha")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

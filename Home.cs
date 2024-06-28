@@ -41,32 +41,9 @@ namespace warsha
 
 
 
-
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dataAdapter.Update(dataSet, "order_parts");
-                MessageBox.Show("Changes saved successfully.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error saving changes: " + ex.Message);
-            }
-        }
-
-
-
-
-
+       
         private void ADD_cust_Click(object sender, EventArgs e)
         {
-
-            //redirecting to another page
-            //Add_Order go_to_order = new Add_Order();
-            //go_to_order.Show();
-            //this.Hide();
-
             // Adding the customer credentials to the customers table
             {
                 try
@@ -117,6 +94,9 @@ namespace warsha
                         insert_user_table.ExecuteNonQuery();
                         MessageBox.Show("USER ADDED", "Popup", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         cust_name_to_create_its_orderstable = CustName.Text;
+                        CustName.Text = null;
+                        CustPhone.Text = null;
+                        CustBalance.Text = null;
                     }
                 }
                 catch (Exception ex)
@@ -128,13 +108,22 @@ namespace warsha
                     cn.Close();
                 }
             }
-            string CustTableName = "orders_of_" + CustName.Text;
+            cust_name_to_create_its_orderstable = "orders_of_" + cust_name_to_create_its_orderstable;
             loading_customers_grid();
 
             // Creating a table for this customer to gather his orders
             {
-                creating_an_orders_table_by_the_name_of_customer(CustTableName);
+                creating_an_orders_table_by_the_name_of_customer(cust_name_to_create_its_orderstable);
             }
+            //turn adding cusomer window off
+            adding_groubbox.Visible = false;
+            //return add order btn to its place
+            add_order_btn.Visible = true;
+
+            //redirecting to another page
+            Add_Order go_to_order = new Add_Order();
+            go_to_order.Show();
+            this.Hide();
         }
 
         private void creating_an_orders_table_by_the_name_of_customer(string cust_name_to_create_orderstable)
@@ -200,14 +189,14 @@ namespace warsha
             add_order_btn.BorderColor = Color.White;
 
 
+            add_order_btn.Visible = false;
+            //// Define the new location and size for this button 
+            //Point newLocation = new Point(2000, 35);
+            //Size newSize = new Size(400, 70);
 
-            // Define the new location and size for this button 
-            Point newLocation = new Point(2000, 35);
-            Size newSize = new Size(400, 70);
-
-            // Set the location and size of this button
-            add_order_btn.Location = newLocation;
-            add_order_btn.Size = newSize;
+            //// Set the location and size of this button
+            //add_order_btn.Location = newLocation;
+            //add_order_btn.Size = newSize;
 
 
 
@@ -322,22 +311,7 @@ namespace warsha
 
         }
 
-        private void add_order_group_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void order_name_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void CustName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

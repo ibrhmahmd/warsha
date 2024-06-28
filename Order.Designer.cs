@@ -405,7 +405,6 @@
             edit_group.Size = new Size(1866, 753);
             edit_group.TabIndex = 11;
             edit_group.Text = "EDIT ORDER";
-            edit_group.Visible = false;
             // 
             // guna2HtmlLabel1
             // 
@@ -437,7 +436,7 @@
             guna2Button1.FillColor = Color.Black;
             guna2Button1.Font = new Font("Segoe UI", 9F);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(779, 659);
+            guna2Button1.Location = new Point(795, 668);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2Button1.Size = new Size(250, 70);
@@ -472,7 +471,7 @@
             dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
             edit_order_grid.DefaultCellStyle = dataGridViewCellStyle11;
             edit_order_grid.GridColor = Color.FromArgb(231, 229, 255);
-            edit_order_grid.Location = new Point(63, 82);
+            edit_order_grid.Location = new Point(3, 43);
             edit_order_grid.Name = "edit_order_grid";
             edit_order_grid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -486,7 +485,7 @@
             edit_order_grid.RowHeadersVisible = false;
             edit_order_grid.RowHeadersWidth = 92;
             edit_order_grid.RowTemplate.Height = 50;
-            edit_order_grid.Size = new Size(1669, 451);
+            edit_order_grid.Size = new Size(1860, 619);
             edit_order_grid.TabIndex = 1;
             edit_order_grid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             edit_order_grid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -512,6 +511,7 @@
             // 
             // Add_Order
             // 
+            BackColor = Color.White;
             ClientSize = new Size(2472, 1421);
             Controls.Add(edit_group);
             Controls.Add(guna2Panel1);
