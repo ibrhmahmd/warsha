@@ -17,20 +17,28 @@ namespace warsha
         SqlConnection cn = new SqlConnection("Data Source=IBRAHIM;Initial Catalog=warsha;Integrated Security=True;Encrypt=False");
         public SqlDataAdapter dataAdapter;
         public DataSet dataSet;
-        public DataTable orderDataTable;
-        public DataTable ordersTable;
+        public DataTable single_order_DataTable;
+        public DataTable ordersDataTable;
+        public DataTable CustomerDataTable;
+        private string customerName;
 
-        public Add_Order()
+
+        public Add_Order(string cust_name_to_create_its_orderstable)
         {
+            customerName = cust_name_to_create_its_orderstable;
             InitializeComponent();
         }
 
-       
+
 
         private void Add_Order_Load(object sender, EventArgs e)
         {
             loading_order_parts_table();
+            loading_customer_orders();
+            loading_customer_data();
+            customer_name_label.Text = customerName;
         }
+
 
         private void loading_order_parts_table()
         {
@@ -49,10 +57,10 @@ namespace warsha
                 dataAdapter.Fill(dataSet, "order_parts");
 
                 // Get the DataTable from DataSet
-                orderDataTable = dataSet.Tables["order_parts"];
+                single_order_DataTable = dataSet.Tables["order_parts"];
 
                 // Bind DataGridView to DataTable
-                edit_order_grid.DataSource = orderDataTable;
+                edit_order_grid.DataSource = single_order_DataTable;
 
 
                 // Allow user to add, delete, and edit rows
@@ -89,20 +97,6 @@ namespace warsha
                 Controls.Add(SaveButton);
             }
         }
-
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dataAdapter.Update(dataSet, "order_parts");
-                MessageBox.Show("Changes saved successfully.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error saving changes: " + ex.Message);
-            }
-        }
-
 
 
         private void Order_DataGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -146,6 +140,7 @@ namespace warsha
                         decimal part_price = Math.Round(area * sqrmtr_price);
                         cn.Close();
 
+
                         cn.Open();
                         //upload the price to the database
                         SqlCommand upload_price = new SqlCommand("select squaremeter_price from [dbo].[orders] ", cn);
@@ -163,6 +158,107 @@ namespace warsha
         }
 
 
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataAdapter.Update(dataSet, "order_parts");
+                MessageBox.Show("Changes saved successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving changes: " + ex.Message);
+            }
+        }
+
+
+        private void loading_customer_orders()
+        {
+            string sanitizedCustomerName = customerName.Replace("'", "''");
+            string tableName = "[" + sanitizedCustomerName + "]";
+
+            // Initialize data adapter with select command
+            dataAdapter = new SqlDataAdapter("select order_number, date_added, discount, squaremeter_price, total_price_of_the_order" +
+                                                " from [dbo]." + tableName, cn);
+
+            // Initialize command builder to generate update/insert/delete commands
+            SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+
+
+            // Initialize DataSet and fill it
+            dataSet = new DataSet();
+            dataAdapter.Fill(dataSet, "orders");
+
+            // Get the DataTable from DataSet
+            ordersDataTable = dataSet.Tables["orders"];
+
+            // Bind DataGridView to DataTable
+            all_the_cusomer_orders_grid.DataSource = ordersDataTable;
+
+
+
+            // Allow user to add, delete, and edit rows
+            all_the_cusomer_orders_grid.AllowUserToAddRows = true;
+            all_the_cusomer_orders_grid.AllowUserToDeleteRows = true;
+            all_the_cusomer_orders_grid.EditMode = DataGridViewEditMode.EditOnEnter;
+
+
+            // Changing the header text of the columns
+            all_the_cusomer_orders_grid.Columns[0].HeaderText = "رقم الطلب";
+            all_the_cusomer_orders_grid.Columns[1].HeaderText = "التاريخ";
+            all_the_cusomer_orders_grid.Columns[2].HeaderText = "تنزيل";
+            all_the_cusomer_orders_grid.Columns[3].HeaderText = "سعر المتر";
+            all_the_cusomer_orders_grid.Columns[4].HeaderText = "اجمالي";
+
+            
+        }
+
+
+        private void loading_customer_data()
+        {
+            string prefixedName = customerName;
+            string prefix = "orders_of_";
+            string Name = prefixedName.Substring(prefix.Length);
+
+      
+            // Initialize data adapter with select command
+            dataAdapter = new SqlDataAdapter("select *" +
+                                             "from [dbo].[customers]" +
+                                             "where name ="+ Name, cn);
+
+            // Initialize command builder to generate update/insert/delete commands
+            SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+
+
+            // Initialize DataSet and fill it
+            dataSet = new DataSet();
+            dataAdapter.Fill(dataSet, "orders");
+
+            // Get the DataTable from DataSet
+            CustomerDataTable = dataSet.Tables["orders"];
+
+            // Bind DataGridView to DataTable
+            customer_data_grid.DataSource = CustomerDataTable;
+
+
+
+            // Allow user to add, delete, and edit rows
+            customer_data_grid.AllowUserToAddRows = true;
+            customer_data_grid.AllowUserToDeleteRows = true;
+            customer_data_grid.EditMode = DataGridViewEditMode.EditOnEnter;
+
+
+            // Changing the header text of the columns
+            //customer_data_grid.Columns[0].HeaderText = "رقم الطلب";
+            //customer_data_grid.Columns[1].HeaderText = "التاريخ";
+            //customer_data_grid.Columns[2].HeaderText = "تنزيل";
+            //customer_data_grid.Columns[3].HeaderText = "سعر المتر";
+            //customer_data_grid.Columns[4].HeaderText = "اجمالي";
+
+
+             
+        }
+
 
         private void reload_btn_Click(object sender, EventArgs e)
         {
@@ -179,6 +275,11 @@ namespace warsha
             Home back_to_home = new Home();
             back_to_home.Show();
             this.Hide();
+        }
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

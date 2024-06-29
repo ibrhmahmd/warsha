@@ -89,7 +89,7 @@
             adding_groubbox.CustomizableEdges = customizableEdges1;
             adding_groubbox.Font = new Font("Segoe UI", 9F);
             adding_groubbox.ForeColor = Color.FromArgb(125, 137, 149);
-            adding_groubbox.Location = new Point(30, 171);
+            adding_groubbox.Location = new Point(33, 1200);
             adding_groubbox.Name = "adding_groubbox";
             adding_groubbox.ShadowDecoration.CustomizableEdges = customizableEdges2;
             adding_groubbox.Size = new Size(1699, 200);
@@ -177,10 +177,10 @@
             add_order_btn.FillColor = Color.Black;
             add_order_btn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             add_order_btn.ForeColor = Color.White;
-            add_order_btn.Location = new Point(2119, 40);
+            add_order_btn.Location = new Point(2100, 25);
             add_order_btn.Name = "add_order_btn";
             add_order_btn.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            add_order_btn.Size = new Size(311, 79);
+            add_order_btn.Size = new Size(300, 80);
             add_order_btn.TabIndex = 14;
             add_order_btn.Text = "ADD ORDER ";
             add_order_btn.Click += add_order_btn_click;
@@ -195,7 +195,7 @@
             guna2Panel2.Location = new Point(0, 0);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel2.Size = new Size(2500, 150);
+            guna2Panel2.Size = new Size(2500, 130);
             guna2Panel2.TabIndex = 9;
             // 
             // reload_btn
@@ -211,10 +211,10 @@
             reload_btn.FillColor = Color.Black;
             reload_btn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             reload_btn.ForeColor = Color.White;
-            reload_btn.Location = new Point(20, 27);
+            reload_btn.Location = new Point(20, 25);
             reload_btn.Name = "reload_btn";
             reload_btn.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            reload_btn.Size = new Size(221, 92);
+            reload_btn.Size = new Size(200, 80);
             reload_btn.TabIndex = 0;
             reload_btn.Text = "RELOAD";
             reload_btn.Click += reload_btn_click;
@@ -230,10 +230,10 @@
             orders_groub.CustomizableEdges = customizableEdges9;
             orders_groub.Font = new Font("Segoe UI", 9F);
             orders_groub.ForeColor = Color.FromArgb(125, 137, 149);
-            orders_groub.Location = new Point(30, 377);
+            orders_groub.Location = new Point(20, 156);
             orders_groub.Name = "orders_groub";
             orders_groub.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            orders_groub.Size = new Size(1296, 1023);
+            orders_groub.Size = new Size(1520, 1008);
             orders_groub.TabIndex = 11;
             orders_groub.Text = "ORDERS";
             // 
@@ -278,7 +278,7 @@
             ordersgrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             ordersgrid.RowHeadersVisible = false;
             ordersgrid.RowHeadersWidth = 92;
-            ordersgrid.Size = new Size(1290, 945);
+            ordersgrid.Size = new Size(1514, 923);
             ordersgrid.TabIndex = 0;
             ordersgrid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             ordersgrid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -329,10 +329,10 @@
             guna2GroupBox1.CustomizableEdges = customizableEdges11;
             guna2GroupBox1.Font = new Font("Segoe UI", 9F);
             guna2GroupBox1.ForeColor = Color.FromArgb(125, 137, 149);
-            guna2GroupBox1.Location = new Point(1735, 171);
+            guna2GroupBox1.Location = new Point(1749, 171);
             guna2GroupBox1.Name = "guna2GroupBox1";
             guna2GroupBox1.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2GroupBox1.Size = new Size(695, 1229);
+            guna2GroupBox1.Size = new Size(681, 1229);
             guna2GroupBox1.TabIndex = 12;
             guna2GroupBox1.Text = "CUSTOMERS";
             // 
@@ -377,7 +377,7 @@
             customers_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             customers_grid.RowHeadersVisible = false;
             customers_grid.RowHeadersWidth = 92;
-            customers_grid.Size = new Size(689, 1137);
+            customers_grid.Size = new Size(675, 1137);
             customers_grid.TabIndex = 0;
             customers_grid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             customers_grid.ThemeStyle.AlternatingRowsStyle.Font = null;

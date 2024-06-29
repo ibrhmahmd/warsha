@@ -108,6 +108,7 @@ namespace warsha
                     cn.Close();
                 }
             }
+
             cust_name_to_create_its_orderstable = "orders_of_" + cust_name_to_create_its_orderstable;
             loading_customers_grid();
 
@@ -115,15 +116,21 @@ namespace warsha
             {
                 creating_an_orders_table_by_the_name_of_customer(cust_name_to_create_its_orderstable);
             }
+
             //turn adding cusomer window off
             adding_groubbox.Visible = false;
             //return add order btn to its place
             add_order_btn.Visible = true;
 
-            //redirecting to another page
-            Add_Order go_to_order = new Add_Order();
+
+            // Redirecting to the Add_Order page
+            Add_Order go_to_order = new Add_Order(cust_name_to_create_its_orderstable);
             go_to_order.Show();
             this.Hide();
+
+
+
+
         }
 
         private void creating_an_orders_table_by_the_name_of_customer(string cust_name_to_create_orderstable)
@@ -134,15 +141,16 @@ namespace warsha
             string tableName = "[" + sanitizedCustomerName + "]";
 
             // Define the SQL query to create the table
-            string createTableQuery = $@"CREATE TABLE {tableName}
-                                (order_id INT NOT NULL, 
-                                customer_name INT NULL,
-                                order_number VARCHAR(50) NULL,
-                                date_added DATE NULL,
-                                discount DECIMAL(5, 2) NULL,
-                                squaremeter_price DECIMAL(10, 2) NULL,
-                                total_price_of_the_order DECIMAL(10, 2) NULL,
-                                order_name VARCHAR(50) NULL);";
+            string createTableQuery = $@"
+                                        CREATE TABLE {tableName}
+                                        (
+                                            order_id INT NOT NULL PRIMARY KEY IDENTITY,
+                                            order_number VARCHAR(50) NULL,
+                                            date_added DATE NULL,
+                                            discount DECIMAL(5, 2) NULL,
+                                            squaremeter_price DECIMAL(10, 2) NULL,
+                                            total_price_of_the_order DECIMAL(10, 2));";
+
 
             try
             {
