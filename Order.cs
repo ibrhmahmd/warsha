@@ -20,12 +20,12 @@ namespace warsha
         public DataTable single_order_DataTable;
         public DataTable ordersDataTable;
         public DataTable CustomerDataTable;
-        private string customerName;
+        private string redirected_customerName;
 
 
         public Add_Order(string cust_name_to_create_its_orderstable)
         {
-            customerName = cust_name_to_create_its_orderstable;
+            redirected_customerName = cust_name_to_create_its_orderstable;
             InitializeComponent();
         }
 
@@ -36,13 +36,13 @@ namespace warsha
             loading_order_parts_table();
             loading_customer_orders();
             loading_customer_data();
-            customer_name_label.Text = customerName;
+            customer_order_grid.Text = redirected_customerName;
+            customer_name_label.Text = redirected_customerName;
         }
 
 
         private void loading_order_parts_table()
         {
-
             //loading a single order data
             {
                 // Initialize data adapter with select command
@@ -171,60 +171,98 @@ namespace warsha
             }
         }
 
+        
+       private void loading_customer_orders()
+       {
+            if (string.IsNullOrEmpty(redirected_customerName))
+            {
+                MessageBox.Show("Customer name is null or empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-        private void loading_customer_orders()
-        {
-            string sanitizedCustomerName = customerName.Replace("'", "''");
-            string tableName = "[" + sanitizedCustomerName + "]";
+            // Ensure the connection is open
+            if (cn.State != ConnectionState.Open)
+            {
+                cn.Open();
+            }
 
-            // Initialize data adapter with select command
-            dataAdapter = new SqlDataAdapter("select order_number, date_added, discount, squaremeter_price, total_price_of_the_order" +
-                                                " from [dbo]." + tableName, cn);
+            try
+            {
+                // Use a parameterized query to prevent SQL injection
+                string query = "SELECT * FROM [dbo].[orders]";
 
-            // Initialize command builder to generate update/insert/delete commands
-            SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                using (SqlCommand command = new SqlCommand(query, cn))
+                {
+                    // Add the parameter value
+                    command.Parameters.AddWithValue("@CustomerName", redirected_customerName);
 
+                    // Initialize data adapter with the select command
+                    dataAdapter = new SqlDataAdapter(command);
 
-            // Initialize DataSet and fill it
-            dataSet = new DataSet();
-            dataAdapter.Fill(dataSet, "orders");
+                    // Initialize command builder to generate update/insert/delete commands
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 
-            // Get the DataTable from DataSet
-            ordersDataTable = dataSet.Tables["orders"];
+                    // Initialize DataSet and fill it
+                    dataSet = new DataSet();
+                    dataAdapter.Fill(dataSet, "orders");
 
-            // Bind DataGridView to DataTable
-            all_the_cusomer_orders_grid.DataSource = ordersDataTable;
+                    // Get the DataTable from DataSet
+                    ordersDataTable = dataSet.Tables["orders"];
 
+                    if (ordersDataTable.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No orders found for the customer.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
 
+                    // Bind DataGridView to DataTable
+                    all_the_cusomer_orders_grid.DataSource = ordersDataTable;
 
-            // Allow user to add, delete, and edit rows
-            all_the_cusomer_orders_grid.AllowUserToAddRows = true;
-            all_the_cusomer_orders_grid.AllowUserToDeleteRows = true;
-            all_the_cusomer_orders_grid.EditMode = DataGridViewEditMode.EditOnEnter;
+                    // Allow user to add, delete, and edit rows
+                    all_the_cusomer_orders_grid.AllowUserToAddRows = true;
+                    all_the_cusomer_orders_grid.AllowUserToDeleteRows = true;
+                    all_the_cusomer_orders_grid.EditMode = DataGridViewEditMode.EditOnEnter;
 
-
-            // Changing the header text of the columns
-            all_the_cusomer_orders_grid.Columns[0].HeaderText = "رقم الطلب";
-            all_the_cusomer_orders_grid.Columns[1].HeaderText = "التاريخ";
-            all_the_cusomer_orders_grid.Columns[2].HeaderText = "تنزيل";
-            all_the_cusomer_orders_grid.Columns[3].HeaderText = "سعر المتر";
-            all_the_cusomer_orders_grid.Columns[4].HeaderText = "اجمالي";
-
-            
-        }
+                    // Ensure there are enough columns before changing header text
+                    if (ordersDataTable.Columns.Count >= 5)
+                    {
+                        // Changing the header text of the columns
+                        all_the_cusomer_orders_grid.Columns[0].HeaderText = "رقم الطلب";
+                        all_the_cusomer_orders_grid.Columns[1].HeaderText = "التاريخ";
+                        all_the_cusomer_orders_grid.Columns[2].HeaderText = "تنزيل";
+                        all_the_cusomer_orders_grid.Columns[3].HeaderText = "سعر المتر";
+                        all_the_cusomer_orders_grid.Columns[4].HeaderText = "اجمالي";  
+                    }
+                    else
+                    {
+                        MessageBox.Show("The orders table does not have the expected number of columns.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Ensure the connection is closed
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+            }
+       }
 
 
         private void loading_customer_data()
         {
-            string prefixedName = customerName;
-            string prefix = "orders_of_";
-            string Name = prefixedName.Substring(prefix.Length);
+            string Name = redirected_customerName;
 
       
             // Initialize data adapter with select command
             dataAdapter = new SqlDataAdapter("select *" +
                                              "from [dbo].[customers]" +
-                                             "where name ="+ Name, cn);
+                                             "where name = '" + Name+"'", cn);
 
             // Initialize command builder to generate update/insert/delete commands
             SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
@@ -232,10 +270,10 @@ namespace warsha
 
             // Initialize DataSet and fill it
             dataSet = new DataSet();
-            dataAdapter.Fill(dataSet, "orders");
+            dataAdapter.Fill(dataSet, "customrs");
 
             // Get the DataTable from DataSet
-            CustomerDataTable = dataSet.Tables["orders"];
+            CustomerDataTable = dataSet.Tables["customrs"];
 
             // Bind DataGridView to DataTable
             customer_data_grid.DataSource = CustomerDataTable;
@@ -249,11 +287,11 @@ namespace warsha
 
 
             // Changing the header text of the columns
-            //customer_data_grid.Columns[0].HeaderText = "رقم الطلب";
-            //customer_data_grid.Columns[1].HeaderText = "التاريخ";
-            //customer_data_grid.Columns[2].HeaderText = "تنزيل";
-            //customer_data_grid.Columns[3].HeaderText = "سعر المتر";
-            //customer_data_grid.Columns[4].HeaderText = "اجمالي";
+            customer_data_grid.Columns[0].HeaderText = "ID";
+            customer_data_grid.Columns[1].HeaderText = "الاسم";
+            customer_data_grid.Columns[2].HeaderText = "الهاتف";
+            customer_data_grid.Columns[3].HeaderText = "التاريخ";
+            customer_data_grid.Columns[4].HeaderText = "باقي";
 
 
              

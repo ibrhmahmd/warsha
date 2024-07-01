@@ -26,7 +26,7 @@ namespace warsha
         public DataTable orderDataTable;
         public DataTable ordersTable;
         public DataTable customersTable;
-        public string cust_name_to_create_its_orderstable;
+        public string customer_name_to_redirect_it;
         public string sqrmtr_prc_create_its_orderstable;
 
         public Home()
@@ -93,7 +93,7 @@ namespace warsha
                         insert_user_table.Parameters.AddWithValue("@joined", DateTime.Now); // Adding the current date and time
                         insert_user_table.ExecuteNonQuery();
                         MessageBox.Show("USER ADDED", "Popup", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        cust_name_to_create_its_orderstable = CustName.Text;
+                        customer_name_to_redirect_it = CustName.Text;
                         CustName.Text = null;
                         CustPhone.Text = null;
                         CustBalance.Text = null;
@@ -109,13 +109,12 @@ namespace warsha
                 }
             }
 
-            cust_name_to_create_its_orderstable = "orders_of_" + cust_name_to_create_its_orderstable;
             loading_customers_grid();
 
-            // Creating a table for this customer to gather his orders
-            {
-                creating_an_orders_table_by_the_name_of_customer(cust_name_to_create_its_orderstable);
-            }
+            //inserting new order in the orders table
+            create_anew_order(customer_name_to_redirect_it);
+
+
 
             //turn adding cusomer window off
             adding_groubbox.Visible = false;
@@ -124,64 +123,19 @@ namespace warsha
 
 
             // Redirecting to the Add_Order page
-            Add_Order go_to_order = new Add_Order(cust_name_to_create_its_orderstable);
+            Add_Order go_to_order = new Add_Order(customer_name_to_redirect_it);
             go_to_order.Show();
             this.Hide();
 
-
-
-
         }
 
-        private void creating_an_orders_table_by_the_name_of_customer(string cust_name_to_create_orderstable)
+
+        private void create_anew_order(string customername)
         {
-            // Ensure the customer name does not contain SQL-injection characters or invalid table name characters
-            string sanitizedCustomerName = cust_name_to_create_orderstable.Replace("'", "''");
-            // Use square brackets around the table name to handle special characters
-            string tableName = "[" + sanitizedCustomerName + "]";
-
-            // Define the SQL query to create the table
-            string createTableQuery = $@"
-                                        CREATE TABLE {tableName}
-                                        (
-                                            order_id INT NOT NULL PRIMARY KEY IDENTITY,
-                                            order_number VARCHAR(50) NULL,
-                                            date_added DATE NULL,
-                                            discount DECIMAL(5, 2) NULL,
-                                            squaremeter_price DECIMAL(10, 2) NULL,
-                                            total_price_of_the_order DECIMAL(10, 2));";
-
-
-            try
-            {
-                // Open the connection
-                cn.Open();
-
-                // Create and execute the SQL command
-                SqlCommand createTableCommand = new SqlCommand(createTableQuery, cn);
-                createTableCommand.ExecuteNonQuery();
-
-                // Inform the user of success
-                //MessageBox.Show("Done creating the orders table for: " + cust_name_to_create_orderstable);
-            }
-            catch (SqlException ex)
-            {
-                // Log or handle the SQL exception
-                MessageBox.Show("SQL Error: " + ex.Message);
-            }
-            finally
-            {
-                // Ensure the connection is closed
-                if (cn.State == System.Data.ConnectionState.Open)
-                {
-                    cn.Close();
-                }
-            }
+            cn.Open();
+            SqlCommand insert_new_order_row = new SqlCommand( "", cn);
+            insert_new_order_row.ExecuteNonQuery();
         }
-
-
-
-
 
 
 
@@ -220,10 +174,6 @@ namespace warsha
             Size newSize_for_adding_groubbox = new Size(1700, 200);
             //adding_groubbox.Size = newSize_for_adding_groubbox;
         }
-
-
-
-
 
 
         private void loading_orders_grid()
