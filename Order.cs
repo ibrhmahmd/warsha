@@ -38,6 +38,11 @@ namespace warsha
             loading_customer_data();
             customer_order_grid.Text = redirected_customerName;
             customer_name_label.Text = redirected_customerName;
+
+            // Disable resizing
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+
         }
 
 
@@ -189,7 +194,7 @@ namespace warsha
             try
             {
                 // Use a parameterized query to prevent SQL injection
-                string query = "SELECT * FROM [dbo].[orders]";
+                string query = "SELECT \r\n    ROW_NUMBER() OVER (ORDER BY date_added) AS IndexColumn,\r\n    date_added,\r\n    discount,\r\n    squaremeter_price,\r\n    total_price_of_the_order,\r\n    order_name\r\nFROM orders\r\nORDER BY date_added;\r\n";
 
                 using (SqlCommand command = new SqlCommand(query, cn))
                 {
@@ -232,6 +237,7 @@ namespace warsha
                         all_the_cusomer_orders_grid.Columns[2].HeaderText = "تنزيل";
                         all_the_cusomer_orders_grid.Columns[3].HeaderText = "سعر المتر";
                         all_the_cusomer_orders_grid.Columns[4].HeaderText = "اجمالي";  
+                        all_the_cusomer_orders_grid.Columns[5].HeaderText = "اسم الطلب";  
                     }
                     else
                     {
@@ -293,8 +299,8 @@ namespace warsha
             customer_data_grid.Columns[3].HeaderText = "التاريخ";
             customer_data_grid.Columns[4].HeaderText = "باقي";
 
-
-             
+            //Deactivate the scroll bars
+            customer_data_grid.ScrollBars = ScrollBars.None;
         }
 
 
@@ -317,7 +323,8 @@ namespace warsha
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+             
         }
     }
 }
+

@@ -37,11 +37,15 @@ namespace warsha
         {
             loading_orders_grid();
             loading_customers_grid();
+            // Disable resizing
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+
         }
 
 
 
-       
+
         private void ADD_cust_Click(object sender, EventArgs e)
         {
             // Adding the customer credentials to the customers table
@@ -132,11 +136,55 @@ namespace warsha
 
         private void create_anew_order(string customername)
         {
-            cn.Open();
-            SqlCommand insert_new_order_row = new SqlCommand( "", cn);
-            insert_new_order_row.ExecuteNonQuery();
-        }
+            // Ensure the connection is open
+            if (cn.State != ConnectionState.Open)
+            {
+                cn.Open();
+            }
 
+            try
+            {
+                // Step 1: Retrieve the customer_id from the customers table using the customername
+                string getCustomerIdQuery = "SELECT customer_id FROM customers WHERE name = @CustomerName";
+                SqlCommand getCustomerIdCommand = new SqlCommand(getCustomerIdQuery, cn);
+                getCustomerIdCommand.Parameters.AddWithValue("@CustomerName", customername);
+
+
+                object result = getCustomerIdCommand.ExecuteScalar();
+
+                if (result != null)
+                {
+                    int customerId = Convert.ToInt32(result);
+
+                    // Step 2: Insert the new order row into the orders table with the retrieved customer_id
+                    string insertOrderQuery = "INSERT INTO orders (customer_id, date_added) VALUES (@CustomerId, @joined)";
+                    SqlCommand insertOrderCommand = new SqlCommand(insertOrderQuery, cn);
+                    insertOrderCommand.Parameters.AddWithValue("@CustomerId", customerId);
+                    insertOrderCommand.Parameters.AddWithValue("@joined", DateTime.Now); // Adding the current date and time
+
+
+                    insertOrderCommand.ExecuteNonQuery();
+
+                    MessageBox.Show("New order created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Customer not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Ensure the connection is closed
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+            }
+        }
 
 
         private void add_order_btn_click(object sender, EventArgs e)
@@ -175,13 +223,12 @@ namespace warsha
             //adding_groubbox.Size = newSize_for_adding_groubbox;
         }
 
-
         private void loading_orders_grid()
         {
             //loding list of prvios orders
-
+            string selecting_all_the_orders = "SELECT \r\n    ROW_NUMBER() OVER (ORDER BY o.date_added) AS IndexColumn,\r\n    c.name AS CustomerName,\r\n    o.date_added,\r\n    o.squaremeter_price,\r\n    o.total_price_of_the_order,\r\n    o.order_name\r\nFROM orders o\r\nJOIN customers c ON o.customer_id = c.customer_id\r\nORDER BY o.date_added;";
             // Initialize data adapter with select command
-            dataAdapter = new SqlDataAdapter("select  order_name, order_number, date_added, total_price_of_the_order  from [dbo].[orders] ", cn);
+            dataAdapter = new SqlDataAdapter(selecting_all_the_orders, cn);
 
             // Initialize command builder to generate update/insert/delete commands
             SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
@@ -197,12 +244,16 @@ namespace warsha
             // Bind DataGridView to DataTable
             ordersgrid.DataSource = ordersTable;
 
-
-            // Changing the header text of the columns
-            ordersgrid.Columns[0].HeaderText = "الاسم";
-            ordersgrid.Columns[1].HeaderText = "رقم الطلب";
+            // Make the DataGridView read-only
+            ordersgrid.ReadOnly = true;
+            //Changing the header text of the columns
+            ordersgrid.Columns[0].HeaderText = "رقم الطلب";
+            ordersgrid.Columns[1].HeaderText = "العميل";
             ordersgrid.Columns[2].HeaderText = "التاريخ";
-            ordersgrid.Columns[3].HeaderText = "السعر";
+            ordersgrid.Columns[3].HeaderText = "سعر المتر";
+            ordersgrid.Columns[4].HeaderText = "المجموع";
+            ordersgrid.Columns[5].HeaderText = "اسم الطلب";
+
         }
 
         private void loading_customers_grid()
@@ -232,6 +283,9 @@ namespace warsha
                 customers_grid.Columns[3].HeaderText = "التاريخ";
                 // Add more columns as needed
 
+                // Make the DataGridView read-only
+                customers_grid.ReadOnly = true;
+
                 // Optionally, you can set column widths or other properties here
             }
             catch (Exception ex)
@@ -240,9 +294,14 @@ namespace warsha
             }
         }
 
+        private void reload_btn_click(object sender, EventArgs e)
+        {
+            // Start a new instance of the application
+            System.Diagnostics.Process.Start(Application.ExecutablePath);
 
-
-
+            // Close the current instance
+            Application.Exit();
+        }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -279,14 +338,7 @@ namespace warsha
 
         }
 
-        private void reload_btn_click(object sender, EventArgs e)
-        {
-            // Start a new instance of the application
-            System.Diagnostics.Process.Start(Application.ExecutablePath);
 
-            // Close the current instance
-            Application.Exit();
-        }
 
         private void add_order_group_Click_1(object sender, EventArgs e)
         {
@@ -304,6 +356,11 @@ namespace warsha
         }
 
         private void customers_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void guna2GroupBox1_Click_1(object sender, EventArgs e)
         {
 
         }

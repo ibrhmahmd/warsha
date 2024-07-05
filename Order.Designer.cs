@@ -383,7 +383,7 @@
             guna2GroupBox2.Location = new Point(1236, 19);
             guna2GroupBox2.Name = "guna2GroupBox2";
             guna2GroupBox2.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2GroupBox2.Size = new Size(1200, 100);
+            guna2GroupBox2.Size = new Size(1054, 100);
             guna2GroupBox2.TabIndex = 14;
             // 
             // customer_data_grid
@@ -427,7 +427,7 @@
             customer_data_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             customer_data_grid.RowHeadersVisible = false;
             customer_data_grid.RowHeadersWidth = 92;
-            customer_data_grid.Size = new Size(1152, 80);
+            customer_data_grid.Size = new Size(1020, 80);
             customer_data_grid.TabIndex = 12;
             customer_data_grid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             customer_data_grid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -653,7 +653,7 @@
             dataGridViewCellStyle19.WrapMode = DataGridViewTriState.False;
             all_the_cusomer_orders_grid.DefaultCellStyle = dataGridViewCellStyle19;
             all_the_cusomer_orders_grid.GridColor = Color.FromArgb(231, 229, 255);
-            all_the_cusomer_orders_grid.Location = new Point(3, 29);
+            all_the_cusomer_orders_grid.Location = new Point(3, 37);
             all_the_cusomer_orders_grid.Name = "all_the_cusomer_orders_grid";
             all_the_cusomer_orders_grid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -666,7 +666,7 @@
             all_the_cusomer_orders_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             all_the_cusomer_orders_grid.RowHeadersVisible = false;
             all_the_cusomer_orders_grid.RowHeadersWidth = 92;
-            all_the_cusomer_orders_grid.Size = new Size(949, 1095);
+            all_the_cusomer_orders_grid.Size = new Size(1150, 1087);
             all_the_cusomer_orders_grid.TabIndex = 12;
             all_the_cusomer_orders_grid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             all_the_cusomer_orders_grid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -704,10 +704,10 @@
             customer_order_grid.CustomizableEdges = customizableEdges23;
             customer_order_grid.Font = new Font("Segoe UI", 9F);
             customer_order_grid.ForeColor = Color.FromArgb(125, 140, 150);
-            customer_order_grid.Location = new Point(1474, 166);
+            customer_order_grid.Location = new Point(1304, 166);
             customer_order_grid.Name = "customer_order_grid";
             customer_order_grid.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            customer_order_grid.Size = new Size(986, 1159);
+            customer_order_grid.Size = new Size(1156, 1159);
             customer_order_grid.TabIndex = 13;
             customer_order_grid.Text = "Orders";
             // 
@@ -736,6 +736,7 @@
             Controls.Add(customer_order_grid);
             Controls.Add(edit_group);
             Controls.Add(guna2Panel1);
+            MaximizeBox = false;
             Name = "Add_Order";
             Load += Add_Order_Load;
             guna2Panel2.ResumeLayout(false);
