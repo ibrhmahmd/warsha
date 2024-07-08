@@ -37,8 +37,6 @@ namespace warsha
             loading_customer_orders();
             loading_customer_data();
             customer_order_grid.Text = redirected_customerName;
-            customer_name_label.Text = redirected_customerName;
-
             // Disable resizing
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -101,7 +99,7 @@ namespace warsha
                 // Add save button to the form
                 Controls.Add(SaveButton);
             }
-        }
+        } 
 
 
         private void Order_DataGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -194,7 +192,9 @@ namespace warsha
             try
             {
                 // Use a parameterized query to prevent SQL injection
-                string query = "SELECT \r\n    ROW_NUMBER() OVER (ORDER BY date_added) AS IndexColumn,\r\n    date_added,\r\n    discount,\r\n    squaremeter_price,\r\n    total_price_of_the_order,\r\n    order_name\r\nFROM orders\r\nORDER BY date_added;\r\n";
+                string query = "SELECT ROW_NUMBER() OVER (ORDER BY o.date_added) AS IndexColumn,\r\nc.name AS CustomerName, o.squaremeter_price, o.total_price_of_the_order\r\n" +
+                    "FROM orders o JOIN customers c ON o.customer_id = c.customer_id " +
+                    "WHERE name ='"+ redirected_customerName + "'";
 
                 using (SqlCommand command = new SqlCommand(query, cn))
                 {
@@ -229,15 +229,13 @@ namespace warsha
                     all_the_cusomer_orders_grid.EditMode = DataGridViewEditMode.EditOnEnter;
 
                     // Ensure there are enough columns before changing header text
-                    if (ordersDataTable.Columns.Count >= 5)
+                    if (ordersDataTable.Columns.Count >= 4)
                     {
                         // Changing the header text of the columns
-                        all_the_cusomer_orders_grid.Columns[0].HeaderText = "رقم الطلب";
-                        all_the_cusomer_orders_grid.Columns[1].HeaderText = "التاريخ";
-                        all_the_cusomer_orders_grid.Columns[2].HeaderText = "تنزيل";
-                        all_the_cusomer_orders_grid.Columns[3].HeaderText = "سعر المتر";
-                        all_the_cusomer_orders_grid.Columns[4].HeaderText = "اجمالي";  
-                        all_the_cusomer_orders_grid.Columns[5].HeaderText = "اسم الطلب";  
+                        all_the_cusomer_orders_grid.Columns[0].HeaderText = "الرقم";
+                        all_the_cusomer_orders_grid.Columns[1].HeaderText = "العميل";
+                        all_the_cusomer_orders_grid.Columns[2].HeaderText = "سعر المتر";
+                        all_the_cusomer_orders_grid.Columns[3].HeaderText = "اجمالي";
                     }
                     else
                     {
@@ -264,44 +262,41 @@ namespace warsha
         {
             string Name = redirected_customerName;
 
-      
             // Initialize data adapter with select command
-            dataAdapter = new SqlDataAdapter("select *" +
-                                             "from [dbo].[customers]" +
-                                             "where name = '" + Name+"'", cn);
+            dataAdapter = new SqlDataAdapter("SELECT name, phone, balance " +
+                                             "FROM [dbo].[customers] " +
+                                             "WHERE name = @Name", cn);
+
+            // Use parameterized query to prevent SQL injection
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@Name", Name);
 
             // Initialize command builder to generate update/insert/delete commands
             SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
 
-
             // Initialize DataSet and fill it
             dataSet = new DataSet();
-            dataAdapter.Fill(dataSet, "customrs");
+            dataAdapter.Fill(dataSet, "customers");
 
             // Get the DataTable from DataSet
-            CustomerDataTable = dataSet.Tables["customrs"];
+            CustomerDataTable = dataSet.Tables["customers"];
 
             // Bind DataGridView to DataTable
             customer_data_grid.DataSource = CustomerDataTable;
-
-
 
             // Allow user to add, delete, and edit rows
             customer_data_grid.AllowUserToAddRows = true;
             customer_data_grid.AllowUserToDeleteRows = true;
             customer_data_grid.EditMode = DataGridViewEditMode.EditOnEnter;
 
-
             // Changing the header text of the columns
-            customer_data_grid.Columns[0].HeaderText = "ID";
-            customer_data_grid.Columns[1].HeaderText = "الاسم";
-            customer_data_grid.Columns[2].HeaderText = "الهاتف";
-            customer_data_grid.Columns[3].HeaderText = "التاريخ";
-            customer_data_grid.Columns[4].HeaderText = "باقي";
+            customer_data_grid.Columns[0].HeaderText = "الاسم";
+            customer_data_grid.Columns[1].HeaderText = "الهاتف";
+            customer_data_grid.Columns[2].HeaderText = "باقي";
 
-            //Deactivate the scroll bars
+            // Deactivate the scroll bars
             customer_data_grid.ScrollBars = ScrollBars.None;
         }
+
 
 
         private void reload_btn_Click(object sender, EventArgs e)

@@ -37,6 +37,10 @@ namespace warsha
         {
             loading_orders_grid();
             loading_customers_grid();
+
+            // Subscribe to the CellClick event
+            customers_grid.CellClick += new DataGridViewCellEventHandler(customers_grid_CellClick);
+
             // Disable resizing
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -273,6 +277,13 @@ namespace warsha
                 // Get the DataTable from DataSet
                 ordersTable = dataSet.Tables["customers"];
 
+                // Ensure the DataTable has rows
+                if (ordersTable.Rows.Count == 0)
+                {
+                    MessageBox.Show("No data found in the customers table.");
+                    return;
+                }
+
                 // Bind DataGridView to DataTable
                 customers_grid.DataSource = ordersTable;
 
@@ -294,6 +305,60 @@ namespace warsha
             }
         }
 
+
+
+        private void customers_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Ensure the click is on a valid row (not on the header)
+                if (e.RowIndex >= 0 && e.RowIndex < customers_grid.Rows.Count)
+                {
+                    // Ensure the second column exists
+                    if (customers_grid.Columns.Count > 1)
+                    {
+                        // Get the value from the second column of the selected row
+                        var cellValue = customers_grid.Rows[e.RowIndex].Cells[1].Value;
+
+                        if (cellValue != null)
+                        {
+                            string customer_name_to_redirect_it = cellValue.ToString();
+                            MessageBox.Show($"Customer name to redirect: {customer_name_to_redirect_it}");
+
+                            if (!string.IsNullOrEmpty(customer_name_to_redirect_it))
+                            {
+                                // Redirect to the Add_Order page
+                                Add_Order go_to_order = new Add_Order(customer_name_to_redirect_it);
+                                go_to_order.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Customer name is empty.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Selected cell value is null.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("The DataGridView does not have a second column.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"Invalid row index: {e.RowIndex}. Total rows: {customers_grid.Rows.Count}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+
+
         private void reload_btn_click(object sender, EventArgs e)
         {
             // Start a new instance of the application
@@ -302,6 +367,21 @@ namespace warsha
             // Close the current instance
             Application.Exit();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {

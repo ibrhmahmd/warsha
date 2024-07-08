@@ -380,10 +380,10 @@
             guna2GroupBox2.CustomizableEdges = customizableEdges11;
             guna2GroupBox2.Font = new Font("Segoe UI", 9F);
             guna2GroupBox2.ForeColor = Color.Black;
-            guna2GroupBox2.Location = new Point(1236, 19);
+            guna2GroupBox2.Location = new Point(1628, 19);
             guna2GroupBox2.Name = "guna2GroupBox2";
             guna2GroupBox2.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2GroupBox2.Size = new Size(1054, 100);
+            guna2GroupBox2.Size = new Size(850, 100);
             guna2GroupBox2.TabIndex = 14;
             // 
             // customer_data_grid
@@ -397,7 +397,7 @@
             customer_data_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = Color.White;
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle10.ForeColor = Color.Black;
             dataGridViewCellStyle10.SelectionBackColor = Color.White;
             dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
@@ -408,13 +408,13 @@
             dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.BackColor = Color.White;
             dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle11.ForeColor = Color.FromArgb(125, 140, 150);
+            dataGridViewCellStyle11.ForeColor = Color.Black;
             dataGridViewCellStyle11.SelectionBackColor = Color.White;
             dataGridViewCellStyle11.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
             customer_data_grid.DefaultCellStyle = dataGridViewCellStyle11;
             customer_data_grid.GridColor = Color.FromArgb(231, 229, 255);
-            customer_data_grid.Location = new Point(25, 8);
+            customer_data_grid.Location = new Point(16, 8);
             customer_data_grid.Name = "customer_data_grid";
             customer_data_grid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -427,7 +427,7 @@
             customer_data_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             customer_data_grid.RowHeadersVisible = false;
             customer_data_grid.RowHeadersWidth = 92;
-            customer_data_grid.Size = new Size(1020, 80);
+            customer_data_grid.Size = new Size(813, 80);
             customer_data_grid.TabIndex = 12;
             customer_data_grid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             customer_data_grid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -516,10 +516,10 @@
             edit_group.CustomizableEdges = customizableEdges21;
             edit_group.Font = new Font("Segoe UI", 9F);
             edit_group.ForeColor = Color.FromArgb(125, 140, 150);
-            edit_group.Location = new Point(20, 166);
+            edit_group.Location = new Point(106, 240);
             edit_group.Name = "edit_group";
             edit_group.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            edit_group.Size = new Size(1278, 1159);
+            edit_group.Size = new Size(1278, 692);
             edit_group.TabIndex = 11;
             edit_group.Text = "EDIT ORDER";
             // 
@@ -553,7 +553,7 @@
             guna2Button1.FillColor = Color.Black;
             guna2Button1.Font = new Font("Segoe UI", 9F);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(526, 1051);
+            guna2Button1.Location = new Point(523, 578);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges20;
             guna2Button1.Size = new Size(250, 70);
@@ -571,7 +571,7 @@
             edit_order_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle14.BackColor = Color.White;
-            dataGridViewCellStyle14.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle14.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle14.ForeColor = Color.Black;
             dataGridViewCellStyle14.SelectionBackColor = Color.White;
             dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
@@ -588,7 +588,7 @@
             dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
             edit_order_grid.DefaultCellStyle = dataGridViewCellStyle15;
             edit_order_grid.GridColor = Color.FromArgb(231, 229, 255);
-            edit_order_grid.Location = new Point(3, 43);
+            edit_order_grid.Location = new Point(7, 38);
             edit_order_grid.Name = "edit_order_grid";
             edit_order_grid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -601,7 +601,7 @@
             edit_order_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             edit_order_grid.RowHeadersVisible = false;
             edit_order_grid.RowHeadersWidth = 92;
-            edit_order_grid.Size = new Size(1272, 977);
+            edit_order_grid.Size = new Size(1268, 509);
             edit_order_grid.TabIndex = 1;
             edit_order_grid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             edit_order_grid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -636,7 +636,7 @@
             all_the_cusomer_orders_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle18.BackColor = Color.White;
-            dataGridViewCellStyle18.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle18.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle18.ForeColor = Color.Black;
             dataGridViewCellStyle18.SelectionBackColor = Color.White;
             dataGridViewCellStyle18.SelectionForeColor = SystemColors.HighlightText;
@@ -647,13 +647,13 @@
             dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle19.BackColor = Color.White;
             dataGridViewCellStyle19.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle19.ForeColor = Color.FromArgb(125, 140, 150);
+            dataGridViewCellStyle19.ForeColor = Color.Black;
             dataGridViewCellStyle19.SelectionBackColor = Color.White;
             dataGridViewCellStyle19.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle19.WrapMode = DataGridViewTriState.False;
             all_the_cusomer_orders_grid.DefaultCellStyle = dataGridViewCellStyle19;
             all_the_cusomer_orders_grid.GridColor = Color.FromArgb(231, 229, 255);
-            all_the_cusomer_orders_grid.Location = new Point(3, 37);
+            all_the_cusomer_orders_grid.Location = new Point(3, 38);
             all_the_cusomer_orders_grid.Name = "all_the_cusomer_orders_grid";
             all_the_cusomer_orders_grid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -666,7 +666,7 @@
             all_the_cusomer_orders_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             all_the_cusomer_orders_grid.RowHeadersVisible = false;
             all_the_cusomer_orders_grid.RowHeadersWidth = 92;
-            all_the_cusomer_orders_grid.Size = new Size(1150, 1087);
+            all_the_cusomer_orders_grid.Size = new Size(561, 935);
             all_the_cusomer_orders_grid.TabIndex = 12;
             all_the_cusomer_orders_grid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             all_the_cusomer_orders_grid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -704,10 +704,10 @@
             customer_order_grid.CustomizableEdges = customizableEdges23;
             customer_order_grid.Font = new Font("Segoe UI", 9F);
             customer_order_grid.ForeColor = Color.FromArgb(125, 140, 150);
-            customer_order_grid.Location = new Point(1304, 166);
+            customer_order_grid.Location = new Point(1890, 151);
             customer_order_grid.Name = "customer_order_grid";
             customer_order_grid.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            customer_order_grid.Size = new Size(1156, 1159);
+            customer_order_grid.Size = new Size(567, 995);
             customer_order_grid.TabIndex = 13;
             customer_order_grid.Text = "Orders";
             // 
