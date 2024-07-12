@@ -323,7 +323,7 @@ namespace warsha
                         if (cellValue != null)
                         {
                             string customer_name_to_redirect_it = cellValue.ToString();
-                            MessageBox.Show($"Customer name to redirect: {customer_name_to_redirect_it}");
+                            //MessageBox.Show($"Customer name to redirect: {customer_name_to_redirect_it}");
 
                             if (!string.IsNullOrEmpty(customer_name_to_redirect_it))
                             {

@@ -380,10 +380,10 @@
             guna2GroupBox2.CustomizableEdges = customizableEdges11;
             guna2GroupBox2.Font = new Font("Segoe UI", 9F);
             guna2GroupBox2.ForeColor = Color.Black;
-            guna2GroupBox2.Location = new Point(1628, 19);
+            guna2GroupBox2.Location = new Point(1899, 12);
             guna2GroupBox2.Name = "guna2GroupBox2";
             guna2GroupBox2.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2GroupBox2.Size = new Size(850, 100);
+            guna2GroupBox2.Size = new Size(561, 100);
             guna2GroupBox2.TabIndex = 14;
             // 
             // customer_data_grid
@@ -427,7 +427,7 @@
             customer_data_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             customer_data_grid.RowHeadersVisible = false;
             customer_data_grid.RowHeadersWidth = 92;
-            customer_data_grid.Size = new Size(813, 80);
+            customer_data_grid.Size = new Size(528, 80);
             customer_data_grid.TabIndex = 12;
             customer_data_grid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             customer_data_grid.ThemeStyle.AlternatingRowsStyle.Font = null;
